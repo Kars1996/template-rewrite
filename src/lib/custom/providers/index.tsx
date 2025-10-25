@@ -1,6 +1,5 @@
 "use client";
 // @ts-ignore CSS Import Error
-import "./lenis.css";
 import Lenis from "lenis";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
