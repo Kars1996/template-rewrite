@@ -1,14 +1,11 @@
 "use client";
 
-import * as SliderPrimitive from "@radix-ui/react-slider";
+import {Slider as SliderPrimitive} from "radix-ui";
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
 import {
   Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
 } from "@/components/ui/tooltip";
 
 function Slider({
@@ -22,7 +19,7 @@ function Slider({
   ...props
 }: React.ComponentProps<typeof SliderPrimitive.Root> & {
   showTooltip?: boolean;
-  tooltipContent?: (value: number) => React.ReactNode;
+  tooltipContent?: (value: number) => number;
 }) {
   const [internalValues, setInternalValues] = React.useState<number[]>(
     Array.isArray(value)
@@ -78,18 +75,9 @@ function Slider({
     if (!showTooltip) return thumb;
 
     return (
-      <TooltipProvider>
-        <Tooltip open={showTooltipState}>
-          <TooltipTrigger asChild>{thumb}</TooltipTrigger>
-          <TooltipContent
-            className="px-2 py-1 text-xs"
-            sideOffset={8}
-            side={props.orientation === "vertical" ? "right" : "top"}
-          >
-            <p>{tooltipContent ? tooltipContent(value) : value}</p>
-          </TooltipContent>
+        <Tooltip content={String(tooltipContent ? tooltipContent(value) : value)}>
+          {thumb}
         </Tooltip>
-      </TooltipProvider>
     );
   };
 

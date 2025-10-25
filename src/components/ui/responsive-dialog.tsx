@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/drawer";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useMediaQuery } from "@/hooks/use-media-query";
 
 interface ResponsiveModalContextValue {
   open: boolean;
@@ -58,7 +58,7 @@ function ResponsiveModal({
   modal = true,
 }: ResponsiveModalProps) {
   const [internalOpen, setInternalOpen] = React.useState(defaultOpen);
-  const isDesktop = !useIsMobile();
+  const isDesktop = useMediaQuery("(min-width: 640px)");
 
   const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
   const setOpen = onOpenChange || setInternalOpen;
@@ -248,7 +248,7 @@ export function ResponsiveModalComposed({
   dialogClassName,
   drawerClassName,
 }: ResponsiveModalComposedProps) {
-  const isDesktop = !useIsMobile();
+  const isDesktop = useMediaQuery("(min-width: 640px)");
 
   if (isDesktop) {
     return (

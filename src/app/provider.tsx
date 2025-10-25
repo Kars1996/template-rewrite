@@ -4,8 +4,7 @@ import Lenis from "lenis";
 import { useEffect, useState, createContext } from "react";
 import NextTopLoader from "nextjs-toploader";
 import { website } from "@/constants";
-import { Toaster } from "sonner";
-
+import { Toaster } from "@/components/ui/toast";
 
 /*
 Copyright © 2025 Kars (github.com/kars1996)
@@ -96,17 +95,7 @@ export function RootProvider({ children, className = "" }: BaseProp) {
         }}
       >
         {children}
-        <Toaster position="top-center"
-      toastOptions={{
-        style: {
-          background: "rgb(38 38 38)",
-          color: "white",
-          border: "1px solid rgb(64 64 64)",
-        },
-        className: "bg-neutral-800 border-neutral-700 text-white",
-      }}
-      theme="dark"
-      richColors/>
+        <Toaster />
         <NextTopLoader
           color={website.accentColor}
           initialPosition={0.08}
