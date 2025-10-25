@@ -93,7 +93,7 @@ export default function IndexPage() {
         <div className="border-border border-b border-dashed px-6 py-16 md:px-12 md:py-24">
           <div className="border-border mb-6 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs">
             <Sparkles className="h-3.5 w-3.5 text-[#FF5E69]" />
-            <span className="text-muted-foreground">v5.5</span>
+            <span className="text-muted-foreground">v6</span>
           </div>
 
           <h2 className="mb-6 text-4xl leading-tight font-bold tracking-tight text-balance md:text-6xl md:leading-tight">
